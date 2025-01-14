@@ -1,0 +1,163 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  /* margin: 4rem 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: none;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 0%;
+  position: relative;
+  height: 50%;
+  /* left: -3%; */
+}
+
+.animationWrapper {
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  transition: transform 1s ease, opacity 1ms ease;
+  /* transition: opacity 1000ms ease-in; */
+  opacity: 0;
+  /* transform: scale(0.8) translateX(0); */
+  background-color: transparent;
+}
+
+.centerAnimation {
+  opacity: 1;
+  transform: scale(1.5) translateX(-3%) translateY(-1%);
+  z-index: 2;
+  left: calc(50-3);
+  background-color: transparent;
+  pointer-events: none;
+}
+
+/* Псевдоэлемент для уменьшения кликабельной области */
+.centerAnimation::before {
+  content: "";
+  position: absolute;
+  top: 2vh;    /* Смещаем от верхнего края */
+  left: 3vh;   /* Смещаем от левого края */
+  right: 3vh;  /* Смещаем от правого края */
+  bottom: 2vh; /* Смещаем от нижнего края */
+  background: transparent;
+  /* pointer-events: none; Это делает псевдоэлемент не кликабельным */
+}
+
+.leftAnimation {
+  opacity: 0.5;
+  transform: scale(0.8) translateX(-105%);
+  z-index: 1;
+  /* left: -3%; */
+  /* left: calc(50% - 10vh); */
+}
+
+
+.rightAnimation {
+  opacity: 0.5;
+  transform: scale(0.8) translateX(105%);
+  z-index: 1;
+  /* left: -3%; */
+  /* left: calc(50% - 10vh); */
+}
+
+
+@media (max-width: 390px) {
+  .centerAnimation {
+    transform: scale(1.35) translateX(-3%) translateY(-1%);
+    background-color: transparent;
+  }
+
+  .leftAnimation {
+    transform: scale(0.7) translateX(-128%);
+    background-color: transparent;
+    
+  }
+
+  .rightAnimation {
+    transform: scale(0.7) translateX(125%);
+    background-color: transparent;
+  }
+}
+
+@media (max-height: 620px) {
+  .centerAnimation {
+    transform: scale(1.7) translateX(-3%) translateY(-1%);
+    background-color: transparent;
+  }
+
+  .leftAnimation {
+    transform: scale(0.8) translateX(-113%);
+    background-color: transparent;
+  }
+
+  .rightAnimation {
+    transform: scale(0.8) translateX(107%);
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 350px) {
+  .leftAnimation {
+    transform: scale(0.8) translateX(-105%);
+    background-color: transparent;
+  }
+
+  .rightAnimation {
+    transform: scale(0.8) translateX(108%);
+    background-color: transparent;
+  }
+}
+
+.placeholder {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navigationButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(209 213 219);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 3;
+}
+
+.navigationButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}

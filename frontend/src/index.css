@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  background-color: #141414;
+  height: 100vh;
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Необходим для поддержки современных браузеров */
+}
